@@ -1,6 +1,9 @@
+import 'package:expense_tracker/screens/add_expense.dart';
 import 'package:flutter/material.dart';
 
 class BottomNav extends StatefulWidget {
+  const BottomNav({super.key});
+
   @override
   _BottomNavState createState() => _BottomNavState();
 }
@@ -10,9 +13,9 @@ class _BottomNavState extends State<BottomNav> {
 
   // Define your pages/screens here
   final List<Widget> _pages = [
-    HomeScreen(),
-    FavoritesScreen(),
-    ProfileScreen(),
+    const HomeScreen(),
+    AddExpenseScreen(),
+    const ProfileScreen(),
   ];
 
   @override
@@ -34,8 +37,8 @@ class _BottomNavState extends State<BottomNav> {
             label: 'Home',
           ),
           NavigationDestination(
-            icon: Icon(Icons.favorite),
-            label: 'Favorites',
+            icon: Icon(Icons.add),
+            label: 'Add',
           ),
           NavigationDestination(
             icon: Icon(Icons.person),
@@ -54,17 +57,6 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: Text('Home Screen'),
-    );
-  }
-}
-
-class FavoritesScreen extends StatelessWidget {
-  const FavoritesScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Favorites Screen'),
     );
   }
 }
