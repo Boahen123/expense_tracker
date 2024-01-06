@@ -1,4 +1,5 @@
 import 'package:expense_tracker/screens/add_expense.dart';
+import 'package:expense_tracker/screens/settings.dart';
 import 'package:flutter/material.dart';
 
 class BottomNav extends StatefulWidget {
@@ -16,6 +17,7 @@ class BottomNavState extends State<BottomNav> {
     const HomeScreen(),
     AddExpenseScreen(),
     const ProfileScreen(),
+    const SettingsPage(),
   ];
 
   @override
@@ -43,6 +45,10 @@ class BottomNavState extends State<BottomNav> {
           NavigationDestination(
             icon: Icon(Icons.person),
             label: 'Profile',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
           ),
         ],
       ),
