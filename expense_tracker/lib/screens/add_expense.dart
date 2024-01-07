@@ -81,6 +81,8 @@ class AddExpenseScreen extends ConsumerWidget {
             
             // expense list
             ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: value.length,
               itemBuilder: (context, index) =>
                   ExpenseTile(expense: value[index]))
