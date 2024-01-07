@@ -75,10 +75,17 @@ class AddExpenseScreen extends ConsumerWidget {
       body: Consumer(builder: (context, ref, child) {
         List<ExpenseItem> value =
             ref.watch(expenseDataProvider).fullExpenseList;
-        return ListView.builder(
-            itemCount: value.length,
-            itemBuilder: (context, index) =>
-                ExpenseTile(expense: value[index]));
+        return ListView(
+          children: [
+            // weekly summary bar chart
+            
+            // expense list
+            ListView.builder(
+              itemCount: value.length,
+              itemBuilder: (context, index) =>
+                  ExpenseTile(expense: value[index]))
+          ]
+        );
       }),
     );
   }
