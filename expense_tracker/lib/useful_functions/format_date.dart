@@ -2,17 +2,19 @@ String formatDate(DateTime dateTime) {
   String year = dateTime.year.toString();
   String month = dateTime.month.toString().padLeft(2, '0');
   String day = dateTime.day.toString().padLeft(2, '0');
-  return '$year$month$day';
+  return '$year/$month/$day';
 }
-
 
 String formatDateTime(DateTime dateTime) {
   String day = dateTime.day.toString();
   String month = _getMonthName(dateTime.month);
   String year = dateTime.year.toString();
   String suffix = _getDaySuffix(dateTime.day);
+  String hour = dateTime.hour.toString().padLeft(2, '0');
+  String minute = dateTime.minute.toString().padLeft(2, '0');
+  String period = dateTime.hour < 12 ? 'AM' : 'PM';
 
-  return '$day$suffix $month $year';
+  return '$day$suffix $month $year, $hour:$minute $period';
 }
 
 String _getMonthName(int month) {
@@ -62,4 +64,3 @@ String _getDaySuffix(int day) {
       return 'th';
   }
 }
-

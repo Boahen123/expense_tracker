@@ -30,11 +30,11 @@ class ExpenseData extends ChangeNotifier {
       'Fri',
       'Sat',
       'Sun'
-    ][dateTime.day - 1];
+    ][dateTime.weekday - 1];
   }
 
   /// get the date for the start of the week
-  DateTime? startOfWeekDate() {
+  DateTime startOfWeekDate() {
     DateTime? startOfWeek;
 
     // get todays date
@@ -47,7 +47,7 @@ class ExpenseData extends ChangeNotifier {
       }
     }
 
-    return startOfWeek;
+    return startOfWeek!;
   }
 
   // Compute the Daily Expense Summary

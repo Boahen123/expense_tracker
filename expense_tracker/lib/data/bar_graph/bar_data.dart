@@ -1,38 +1,43 @@
 import 'package:expense_tracker/data/bar_graph/single_bar.dart';
 
+/// Bar data for the bar graph
 class BarData {
   /// amounts for each day
-  final double sun;
-  final double mon;
-  final double tue;
-  final double wed;
-  final double thurs;
-  final double fri;
-  final double sat;
+  final double sunAmount;
+  final double monAmount;
+  final double tueAmount;
+  final double wedAmount;
+  final double thursAmount;
+  final double friAmount;
+  final double satAmount;
 
 
   BarData({
-    required this.sun,
-    required this.mon,
-    required this.tue,
-    required this.wed,
-    required this.thurs,
-    required this.fri,
-    required this.sat,
+    required this.sunAmount,
+    required this.monAmount,
+    required this.tueAmount,
+    required this.wedAmount,
+    required this.thursAmount,
+    required this.friAmount,
+    required this.satAmount,
   });
 
+  /// List to store the bar info - i.e. the amount spent on each day
   List<SingleBar> barInfo = [];
 
-  /// initialize the bar info
+  /// Getter to get bar info
+  List<SingleBar> get getBarInfo => barInfo;
+
+  /// initialize the bar info for each day of the week
   void initializeBarInfo() {
-    barInfo = [
-      SingleBar(x: 0, amount: sun),
-      SingleBar(x: 1, amount: mon),
-      SingleBar(x: 2, amount: tue),
-      SingleBar(x: 3, amount: wed),
-      SingleBar(x: 4, amount: thurs),
-      SingleBar(x: 5, amount: fri),
-      SingleBar(x: 6, amount: sat),
+     barInfo = [
+      SingleBar(day: 0, amount: sunAmount),
+      SingleBar(day: 1, amount: monAmount),
+      SingleBar(day: 2, amount: tueAmount),
+      SingleBar(day: 3, amount: wedAmount),
+      SingleBar(day: 4, amount: thursAmount),
+      SingleBar(day: 5, amount: friAmount),
+      SingleBar(day: 6, amount: satAmount),
     ];
   }
 }

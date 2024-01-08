@@ -1,5 +1,6 @@
 import 'package:expense_tracker/models/expense_item.dart';
 import 'package:expense_tracker/providers/expense_data_provider.dart';
+import 'package:expense_tracker/widgets/expense_summary.dart';
 import 'package:expense_tracker/widgets/expense_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -73,21 +74,20 @@ class AddExpenseScreen extends ConsumerWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       body: Consumer(builder: (context, ref, child) {
-        List<ExpenseItem> value =
-            ref.watch(expenseDataProvider).fullExpenseList;
-        return ListView(
-          children: [
-            // weekly summary bar chart
-            
-            // expense list
-            ListView.builder(
+        var value = ref.watch(expenseDataProvider);
+        return ListView(children: [
+          // weekly summary bar chart
+          ExpenseSummary(
+            startOfWeek: value.startOfWeekDate()
+          ),
+          // expense list
+          ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: value.length,
+              itemCount: value.getFullExpenseList.length,
               itemBuilder: (context, index) =>
-                  ExpenseTile(expense: value[index]))
-          ]
-        );
+                  ExpenseTile(expense: value.getFullExpenseList[index]))
+        ]);
       }),
     );
   }
